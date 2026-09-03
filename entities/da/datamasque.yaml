@@ -1,0 +1,65 @@
+schema_version: sourcey.entity-authoring/v1alpha1
+entity:
+  entity_id: ent_01m1kyc8wfhn51ch72scfj8p7e
+  slug: datamasque
+  slug_aliases: []
+  name: DataMasque
+  domains:
+    - value: datamasque.com
+      role: primary
+      valid_from: 2026-09-03T15:32:10.779Z
+  category: auth-security
+profile:
+  description: DataMasque discovers and irreversibly masks sensitive data while preserving realistic structure and referential integrity for testing, analytics, and AI workloads.
+  links:
+    site: https://www.datamasque.com
+sources:
+  - source_id: src_9e30c6056a76953de8ede3eedaa0afcd1c550158bfaee69897e7767f85c4ca73
+    url: https://www.datamasque.com/
+  - source_id: src_2daac6b543792fdeef43b565cfb7de3ef68ad83fd90ac7b8b2ee3a79347c58e0
+    url: https://www.datamasque.com/synthetically-identical-customer-data
+  - source_id: src_bd845a0280f053339326446038387ded6df83c9c6063f71a9e9a51766adfe11a
+    url: https://startups.aws.com/offers?lang=en-US
+programs: []
+offers:
+  - offer_id: off_01m1kyc8wsfc71bmzvpxa7gwsb
+    offer_slug: datamasque-for-startups
+    offer_slug_aliases: []
+    title: DataMasque for Startups
+    summary: Eligible AWS startups receive 50% off the DataMasque Consumption plan on RHEL on AWS for 12 months, plus documentation access and technical advisory.
+    lifecycle:
+      status: active
+      effective_from: 2026-09-03T15:32:10.779Z
+    economics:
+      benefits:
+        - benefit_id: ben_01
+          description: 50% off DataMasque Consumption plan pricing on RHEL on AWS
+          duration:
+            kind: exact
+            value: P1Y
+          kind: discount
+          percentage:
+            basis_points: 5000
+            kind: exact
+        - benefit_id: ben_02
+          description: Access to the DataMasque documentation portal and expert technical advisory from DataMasque Solutions Architects
+          kind: other
+      consideration:
+        kind: unknown
+        description: The discounted DataMasque Consumption plan remains paid; the public offer does not state its base consumption price.
+    eligibility:
+      rule:
+        criterion_id: cri_01
+        kind: manual
+        reason: external-verification
+        statement: Applicant must be an eligible AWS startup customer.
+    roles:
+      terms_authority_entity_id: ent_01m1kyc8wfhn51ch72scfj8p7e
+      access_operator_entity_id: ent_01kyh8fpe10b164tj935t8k5zb
+    access:
+      availability: membership
+      method: form
+      url: https://startups.aws.com/offers/datamasque
+    source_ids:
+      - src_bd845a0280f053339326446038387ded6df83c9c6063f71a9e9a51766adfe11a
+
