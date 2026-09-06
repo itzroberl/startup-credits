@@ -20,7 +20,7 @@ sources:
   - source_id: src_df1e55ae2a42360562f00b3d954023cf73703c598609601f5880088b195b0a09
     url: https://docs.groundcover.com/
   - source_id: src_96ea3dc9541a07805a0e2c5d60d3eed83d47101fdd3da088e283ca0859b0a230
-    url: https://startups.aws.com/offers?lang=en-US
+    url: https://aws.amazon.com/startups/offers?lang=en-US
 programs: []
 offers:
   - offer_id: off_01m1d16yagamvm9x8ya4pk7y91
