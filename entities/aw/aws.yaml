@@ -8,9 +8,6 @@ entity:
     - value: aws.amazon.com
       role: primary
       valid_from: 2026-07-27T07:35:36.165Z
-    - value: startups.aws.com
-      role: alias
-      valid_from: 2026-09-06T22:29:47.342Z
   category: hosting-infra
 profile:
   description: Amazon Web Services provides cloud infrastructure, data services, and AI/ML tools to help startups build and scale.
