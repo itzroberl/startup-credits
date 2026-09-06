@@ -42,7 +42,7 @@ offers:
           kind: other
         - benefit_id: ben_02
           applies_to: Expert tier
-          description: "Free credits towards Expert tier: Up to 90% discount for 6 months."
+          description: Up to 90% discount for 6 months.
           kind: discount
           percentage:
             basis_points: 9000
@@ -54,7 +54,7 @@ offers:
           description: Full access to synthetic data and agent testing.
           kind: other
         - benefit_id: ben_04
-          description: "Priority support: Direct access to engineers to help you build faster."
+          description: Priority support.
           kind: other
       consideration:
         kind: variable
