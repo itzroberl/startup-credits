@@ -10,6 +10,7 @@ entity:
       valid_from: 2026-08-31T23:07:00.816Z
   category: observability
 profile:
+  summary: groundcover provides cloud-native observability for logs, metrics, traces, profiling, and infrastructure.
   description: groundcover provides cloud-native observability for logs, metrics, traces, profiling, and infrastructure using eBPF and bring-your-own-cloud deployment.
   links:
     site: https://www.groundcover.com
