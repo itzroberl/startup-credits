@@ -53,9 +53,6 @@ offers:
         - benefit_id: ben_03
           description: Full access to synthetic data and agent testing.
           kind: other
-        - benefit_id: ben_04
-          description: Priority support.
-          kind: other
       consideration:
         kind: variable
         description: Up to 90% discount for 6 months.
