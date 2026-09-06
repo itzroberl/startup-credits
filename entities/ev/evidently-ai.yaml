@@ -38,11 +38,11 @@ offers:
     economics:
       benefits:
         - benefit_id: ben_01
-          description: Evidently Cloud includes all core AI evaluation features.
+          description: All core AI evaluation features.
           kind: other
         - benefit_id: ben_02
           applies_to: Expert tier
-          description: Free credits toward the Expert tier provide up to a 90% discount for 6 months.
+          description: Free credits toward the Expert tier, up to a 90% discount for 6 months.
           kind: discount
           percentage:
             basis_points: 9000
@@ -54,41 +54,17 @@ offers:
           description: Full access to synthetic data and agent testing.
           kind: other
         - benefit_id: ben_04
-          description: Priority support provides direct access to Evidently engineers.
+          description: Priority support with direct access to engineers.
           kind: other
       consideration:
         kind: variable
-        description: The applicant pays the remaining Expert tier price after the free credits are applied.
+        description: The Expert tier offer is an up to 90% discount for 6 months.
     eligibility:
       rule:
-        kind: all
-        rules:
-          - criterion_id: cri_01
-            kind: manual
-            reason: external-verification
-            statement: Applicant is a technology startup.
-          - kind: any
-            rules:
-              - criterion_id: cri_02
-                fact: company.age_months
-                kind: predicate
-                operator: lt
-                statement: Company is less than 2 years old.
-                value:
-                  type: number
-                  value: 24
-              - criterion_id: cri_03
-                fact: company.funding_raised_usd
-                kind: predicate
-                operator: lt
-                statement: Company has raised less than $5 million in funding.
-                value:
-                  type: number
-                  value: 5000000
-          - criterion_id: cri_04
-            kind: manual
-            reason: external-verification
-            statement: Applicant has signed up for a free Evidently account before applying.
+        criterion_id: cri_01
+        kind: manual
+        reason: external-verification
+        statement: Applicant must sign up for a free account before applying, and the company must be a tech startup less than 2 years old or have raised less than $5 million in funding.
     roles:
       terms_authority_entity_id: ent_01m15djdfn8r2rtg7pbkew9j26
       access_operator_entity_id: ent_01m15djdfn8r2rtg7pbkew9j26
