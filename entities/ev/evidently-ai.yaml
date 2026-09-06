@@ -10,6 +10,7 @@ entity:
       valid_from: 2026-08-29T00:09:12.527Z
   category: observability
 profile:
+  summary: Evidently AI helps teams evaluate, test, and monitor AI-powered products.
   description: Evidently AI provides tools to evaluate, test, and monitor AI-powered products, including LLM and machine-learning systems.
   links:
     site: https://www.evidentlyai.com
@@ -37,11 +38,11 @@ offers:
     economics:
       benefits:
         - benefit_id: ben_01
-          description: Access to all core AI evaluation features.
+          description: Evidently Cloud includes all core AI evaluation features.
           kind: other
         - benefit_id: ben_02
-          applies_to: Evidently Expert tier
-          description: Free credits worth up to a 90% discount on the Expert tier for 6 months.
+          applies_to: Expert tier
+          description: Free credits toward the Expert tier provide up to a 90% discount for 6 months.
           kind: discount
           percentage:
             basis_points: 9000
@@ -53,11 +54,11 @@ offers:
           description: Full access to synthetic data and agent testing.
           kind: other
         - benefit_id: ben_04
-          description: Priority support with direct access to Evidently engineers.
+          description: Priority support provides direct access to Evidently engineers.
           kind: other
       consideration:
-        kind: unknown
-        description: The startup page does not publish the Expert tier price or the free-credit amount.
+        kind: variable
+        description: The applicant pays the remaining Expert tier price after the free credits are applied.
     eligibility:
       rule:
         kind: all
