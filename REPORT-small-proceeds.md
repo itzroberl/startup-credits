@@ -30,7 +30,9 @@ At the demonstrated state, `shares = 1,704,900,935,893,411`, `SCALE = 1,000,000,
 4. Call market `swap` with 1,002 sats. Its 2-sat taker rebate leaves the 1,000-sat market minimum; after the 1-sat maker fee, the rung receives 1,001 sats. `swap` and `sync` both return `ok`.
 5. The sBTC balance moves from 1 to 1,002 sats and `sats-accounted` becomes 1,002. `proceeds-index` stays **400,866,363**, epoch stays **0**, `get-position` reports `(sbtc u0)`, and `claim` returns `(sbtc u0)` without reducing the 1,002-sat balance.
 
-To rerun, check out the target commit, run `npm ci`, copy the linked script into its `simulations/` directory next to `_lazer.js`, and run `node --dns-result-order=ipv4first simulations/verify-v6-3-proceeds-real-market.js`. The script asserts the share threshold, unchanged index, new sBTC balance, accounted balance, zero entitlement, and post-claim balance. It fetches a fresh public Lazer update; because oracle prices/rebates vary, numerical balances can differ between runs, while the assertions test the invariant.
+The [two-fill repeatability simulation](https://stxer.xyz/simulations/mainnet/2aeac13da2705194f6f918ad820563fe) executes another valid 1,002-sat swap and another member claim in the same epoch. Its balance goes **1 -> 1,002 -> 2,003 sats**, while `proceeds-index` stays at **400,024,120** through both fills, `sats-accounted` rises to 2,003, and both claims pay **0 sats**. This independently confirms that repeating small valid fills does not recover the earlier rounded-away proceeds.
+
+To rerun, check out the target commit, run `npm ci`, copy the linked script into its `simulations/` directory next to `_lazer.js`, and run `node --dns-result-order=ipv4first simulations/verify-v6-3-proceeds-real-market.js`. The script asserts the share threshold, unchanged index, new sBTC balance, accounted balance, zero entitlement, and post-claim balance after **both** swaps. It fetches a fresh public Lazer update; because oracle prices/rebates vary, numerical balances can differ between runs, while the assertions test the invariant.
 
 ## Fix direction
 
