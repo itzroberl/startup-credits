@@ -34,6 +34,10 @@ The [two-fill repeatability simulation](https://stxer.xyz/simulations/mainnet/2a
 
 To rerun, check out the target commit, run `npm ci`, copy the linked script into its `simulations/` directory next to `_lazer.js`, and run `node --dns-result-order=ipv4first simulations/verify-v6-3-proceeds-real-market.js`. The script asserts the share threshold, unchanged index, new sBTC balance, accounted balance, zero entitlement, and post-claim balance after **both** swaps. It fetches a fresh public Lazer update; because oracle prices/rebates vary, numerical balances can differ between runs, while the assertions test the invariant.
 
+## Dispatch control
+
+The [corrected local dispatch harness](simulations/verify-ladder-dispatch-local.js) deploys its registry fixture as `jing-ladder-v1`, matching the exact dispatch source's binding (the repository's existing local test deployed it under the old `jing-ladder` name). `node simulations/verify-ladder-dispatch-local.js` passed **122/122** checks: allocation totals, side and seat validation, duplicate rejection, atomic rollback, direct-call guard, multi-rung exits, and user-versus-helper custody. This is a mocked registry/rung control, not a real-market integration proof or an additional vulnerability finding.
+
 ## Fix direction
 
 Do not advance the accounted watermark for a gain that was not represented in claimable member credit. Track unindexed proceeds as an explicit per-epoch carry (including the division remainder), and allocate or settle that carry to the holders at the time it arose before membership/epoch changes; alternatively change the share/reward accounting so every valid fill is exactly attributable. Advancing `sats-accounted` to the entire balance is safe only after proving the gain has become claimable. A regression should replay the sequence above, assert that the 1,001 new sats are eventually allocated or explicitly refundable, and cover a deposit/withdraw and an epoch transition while carry exists.
