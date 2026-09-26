@@ -93,6 +93,14 @@ evalCode("accounted sats after target fill", "(var-get sats-accounted)");
 evalCode("member entitlement", `(get-position '${MEMBER})`);
 call("member claim", MEMBER, RID, "claim", []);
 evalCode("balance after claim", `(contract-call? '${SBTC} get-balance '${RID})`);
+swap("second minimum-size 1002-sat taker swap", 1002n);
+call("sync second target fill", TAKER, RID, "sync", []);
+evalCode("after second target fill", "(get-state)");
+evalCode("balance after second target fill", `(contract-call? '${SBTC} get-balance '${RID})`);
+evalCode("accounted sats after second target fill", "(var-get sats-accounted)");
+evalCode("member entitlement after second target fill", `(get-position '${MEMBER})`);
+call("member claims again", MEMBER, RID, "claim", []);
+evalCode("balance after second claim", `(contract-call? '${SBTC} get-balance '${RID})`);
 
 if (process.argv[2]) {
   const limit = Number(process.argv[2]);
@@ -123,7 +131,13 @@ if (field("before target fill", "total-shares") <= 1_000_000_000_000_000n ||
     uint("accounted sats after target fill") !== balance("balance after target fill") ||
     !valueOf("member entitlement").includes("(sbtc u0)") ||
     !valueOf("member claim").includes("(sbtc u0)") ||
-    balance("balance after target fill") !== balance("balance after claim")) {
+    balance("balance after target fill") !== balance("balance after claim") ||
+    field("after target fill", "proceeds-index") !== field("after second target fill", "proceeds-index") ||
+    balance("balance after second target fill") - balance("balance after claim") < 990n ||
+    uint("accounted sats after second target fill") !== balance("balance after second target fill") ||
+    !valueOf("member entitlement after second target fill").includes("(sbtc u0)") ||
+    !valueOf("member claims again").includes("(sbtc u0)") ||
+    balance("balance after second target fill") !== balance("balance after second claim")) {
   throw new Error("Small proceeds did not stay stranded on the real market path");
 }
 
